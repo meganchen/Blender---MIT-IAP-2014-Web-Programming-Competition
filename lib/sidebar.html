@@ -1,0 +1,19 @@
+<template name="sidebar" id="sidebar">
+	<ul class="sidebar-nav">
+		<!-- logo -->
+		<li class="sidebar-brand"><a href = "/"><img src="blender.png" id="blenderLogo"></a></li>
+		<br><br>
+		<!--navigation-->
+       	<li class="sidebar-login">{{loginButtons}}</li>
+		<br><br>
+		<li class="sidebar-link"><a class="sb-link" href="{{pathFor 'main'}}">find a meal</a></li>
+		<br><br>
+       	<li class="sidebar-link"><a class="sb-link" href="{{pathFor 'my_meals'}}">my meals</a></li>
+		<br><br>
+		<li class="sidebar-link"><a class="sb-link" href="{{pathFor 'resources'}}">resources</a></li>
+		<br><br>
+       	<li class="sidebar-link"><a class="sb-link" href="{{pathFor 'about_us'}}">about</a></li>
+	</ul>
+	<br><br><br>
+	{{>copyright_bar}}
+</template>

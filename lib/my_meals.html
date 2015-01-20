@@ -1,0 +1,169 @@
+<template name="my_meals" id="my_meals">
+	<div id="main-wrapper">
+<h1>my meals</h1>
+<hr>
+<h2> personal statistics
+</h2>
+<p class = "enlarge"> meals started: {{stat_started}}
+	<br>
+total meals: {{stat_total}}</p>
+
+<hr>
+<h2> active meals
+</h2>
+
+<ul class="meal_list">
+{{#if $eq count_active_meals 0}}
+<br>
+<li class = "enlarge">
+no meals
+</li>
+{{/if}}
+{{#each my_active_meals}}
+<li class = "meal_box">
+<div>
+<h3 class="meal_titles">
+{{#if $eq mymeal.meal_type 'breakfast'}}breakfast {{/if}}
+{{#if $eq mymeal.meal_type 'lunch'}}lunch {{/if}}
+{{#if $eq mymeal.meal_type 'dinner'}}dinner {{/if}}
+{{#if $eq mymeal.meal_type 'other'}}other {{/if}}
+{{#if $eq mymeal.meal_type 'dessert'}}dessert {{/if}}
+{{#if $neq mymeal.meal_locator ""}}
+at {{mymeal.meal_locator}}
+{{#if this.chef}}
+(planning)
+{{/if}}
+{{/if}}
+</h3>
+<h3>
+{{mymeal.date}}
+</h3><br>
+<p class = "enlarge">
+{{#if $neq mymeal.cooks_needed 0}}
+{{#if $neq mymeal.num_cooks "none"}}
+{{mymeal.cooks_needed}} cooking places open.
+{{/if}}
+{{#if $eq mymeal.num_cooks "none"}}
+no maximum on number of cooks.
+{{/if}}
+{{/if}}
+{{#if $eq mymeal.cooks_needed 0}}
+all cooking places filled.
+{{/if}}
+
+<br>
+dietary restrictions:
+
+{{#if mymeal.no_diet}}
+{{#if $not mymeal.vegetarian}}
+{{#if $not mymeal.vegan}}
+{{#if $not mymeal.kosher}}
+{{#if $not mymeal.halal}}
+{{#if $not mymeal.gluten_free}}
+{{#if $not mymeal.lactose_free}}
+{{#if $not mymeal.other_diet}}
+ none
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{#if mymeal.vegetarian}}
+ vegetarian
+{{/if}}
+{{#if mymeal.vegan}}
+ vegan
+{{/if}}
+{{#if mymeal.kosher}}
+ kosher
+{{/if}}
+{{#if mymeal.halal}}
+ halal
+{{/if}}
+{{#if mymeal.gluten_free}}
+ gluten-free
+{{/if}}
+{{#if mymeal.lactose_free}}
+ lactose-free
+{{/if}}
+{{#if mymeal.other_diet}}
+ other
+{{/if}}
+
+{{#if $neq mymeal.comments ""}}
+<br>
+comments: {{mymeal.comments}}
+{{/if}}
+<br>
+{{#if no_my_recipes}}
+no recipes yet.
+{{/if}}
+
+{{#if $not no_my_recipes}}
+recipes: {{#each my_recipe_names}}
+{{this.recipe_name}},
+{{/each}}
+{{/if}}
+<br>
+cooks:
+{{#each my_cook_names}}
+{{this.cook_name}}, 
+{{/each}}
+<br>
+</p>
+
+</div>
+<br>
+<a class="sb-link view_my_meal nav-button" href="{{pathFor 'view_meal'}}">view&#9757;</a>
+{{#if this.chef}}
+<a class="sb-link edit_meal nav-button" href="{{pathFor plan_my_meal_type}}">edit&#9998;</a>
+<a class="sb-link delete_meal nav-button">delete&#10008;</a>
+{{/if}}
+{{#if $not this.chef}}
+<a class="sb-link unjoin_meal nav-button">unjoin&#8621;</a>
+{{/if}}
+<br>
+<br>
+</li>
+{{/each}}
+</ul>
+<hr>
+
+
+<h2> past meals
+</h2>
+<ul class="meal_list">
+{{#if $eq count_past_meals 0}}
+<br>
+<li class = "enlarge">
+no meals
+</li>
+{{/if}}
+{{#each my_past_meals}}
+<li class = "meal_box">
+<div>
+<h3 class="meal_titles2">
+{{#if $eq mymeal.meal_type 'breakfast'}}breakfast {{/if}}
+{{#if $eq mymeal.meal_type 'lunch'}}lunch {{/if}}
+{{#if $eq mymeal.meal_type 'dinner'}}dinner {{/if}}
+{{#if $eq mymeal.meal_type 'other'}}other {{/if}}
+{{#if $eq mymeal.meal_type 'dessert'}}dessert {{/if}}
+{{#if $neq mymeal.meal_locator ""}}
+at {{mymeal.meal_locator}}
+{{#if this.chef}}
+(planned)
+{{/if}}
+{{/if}}
+</h3>
+<h3>
+{{mymeal.date}}
+</h3>
+</li>
+{{/each}}
+</ul>
+<hr>
+</div>
+</template>

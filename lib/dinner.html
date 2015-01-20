@@ -1,0 +1,12 @@
+<template name="plan_dinner" id="plan_dinner">
+	<div id = "main-wrapper">
+<h1> plan dinner! </h1>
+<hr>
+<div class="plan_meal">
+{{yield 'plan_meal'}}
+<br>
+<a class="sb-link nav-button" href="{{pathFor 'dinner'}}">&#8606; go back</a>
+<br><br><br>
+</div>
+</div>
+</template>

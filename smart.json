@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "handlebar-helpers": {},
+    "iron-router": {},
+    "spin": {},
+    "jquery-ui-bootstrap": {},
+    "bootstrap-timepicker": {},
+    "pretty-fullcalendar": {}
+  }
+}

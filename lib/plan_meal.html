@@ -1,0 +1,63 @@
+<template name="plan_meal" id="plan_meal">
+	<div id = "main-wrapper">
+<h2> meal information </h2>
+
+{{#if $neq meal_status 'submitted'}}
+<div class="meal_input">
+{{yield 'meal_input'}}
+</div>
+{{/if}}
+
+{{#if $eq meal_status 'submitted'}}
+<div class="meal_output">
+{{yield 'meal_output'}}
+</div>
+
+<br>
+<hr>
+
+<div class="recipe_manager">
+
+<h2> recipes </h2>
+
+<div class="recipe_input">
+{{yield 'recipe_input'}}
+</div>
+
+<br>
+<br>
+
+<div class="recipe_box">
+{{yield 'recipe_list'}}
+</div>
+
+</div>
+
+<br>
+<br>
+
+{{#if $eq fetch_meal_type "breakfast"}}
+<a class="sb-link nav-button" id="plan_new" href="{{pathFor 'plan_breakfast'}}">new breakfast&#8608;</a>
+{{/if}}
+
+{{#if $eq fetch_meal_type "lunch"}}
+<a class="sb-link nav-button" id="plan_new" href="{{pathFor 'plan_lunch'}}">new lunch&#8608;</a>
+{{/if}}
+
+{{#if $eq fetch_meal_type "dinner"}}
+<a class="sb-link nav-button" id="plan_new" href="{{pathFor 'plan_dinner'}}">new dinner&#8608;</a>
+{{/if}}
+
+{{#if $eq fetch_meal_type "dessert"}}
+<a class="sb-link nav-button" id="plan_new" href="{{pathFor 'plan_dessert'}}">new dessert&#8608;</a>
+{{/if}}
+
+{{#if $eq fetch_meal_type "other"}}
+<a class="sb-link nav-button" id="plan_new" href="{{pathFor 'plan_other'}}">new other&#8608;</a>
+{{/if}}
+
+<br>
+<br>
+{{/if}}
+</div>
+</template>

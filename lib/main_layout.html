@@ -1,0 +1,32 @@
+<template name="main_layout" id="main_layout">
+	<head>
+		<title>Blender: Find cooking partners at MIT!</title>
+		<link rel="icon" sizes "16x16 32x32" href="/favicon.ico?v=2" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  	  <link href='http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise' rel='stylesheet' type='text/css'>
+  </head>
+
+	<body>
+		<div id = "wrapper">
+			<div id = "sidebar-wrapper">
+				{{>sidebar}}
+			</div>
+			<div id = "page-content-wrapper">
+				{{#if currentUser}}
+				{{currentUser.profile.login}}
+				
+				<div class="mainContent">
+					{{yield}}
+				</div>
+				{{else}}
+				<div class="errorPage">
+					{{>loginToView}}
+				</div>
+				{{/if}}
+			</div>
+			<div id = "rightbar-wrapper">
+				{{>rightbar}}
+			</div>
+		</div>
+	</body>
+</template>

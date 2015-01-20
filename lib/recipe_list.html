@@ -1,0 +1,25 @@
+<template name="recipe_list" id="recipe_list">
+
+<ul id="recipes">
+<div class = "enlarge" id="no_recipes">
+{{no_recipes}}
+</div>
+
+{{#each list}}
+<li class = "enlarge">
+<h3>
+name: <a class = "sb-link" href={{this.recipe_url}}>{{this.recipe_name}}{{#if this.recipe_url}}&#8608;{{/if}}</a>
+</h3>
+{{#if this.recipe_notes}}
+<div id="recipe_notes">
+notes: {{this.recipe_notes}}
+</div>
+{{/if}}
+<br><br>
+<a class="sb-link edit_recipe nav-button">edit&#9998;</a>
+<a class="sb-link delete_recipe nav-button">delete&#10008;</a>
+<br><br><br>
+</li>
+{{/each}}
+</ul>
+</template>

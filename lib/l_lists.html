@@ -1,0 +1,111 @@
+<template name="lunch" id="lunch">
+	<div id = "main-wrapper">
+<h1>
+	lunch!
+</h1>
+<hr>
+	<br>
+	<a class="sb-link nav-button" href="{{pathFor 'main'}}">&#8606;go back</a>
+	<a class="sb-link nav-button" href="{{pathFor 'plan_lunch'}}">start new&#8608;</a>
+	
+<br><br><br><br><br>
+
+<h2>
+	open meals
+</h2>
+
+<hr>
+<p class="enlarge">
+{{#if $not open_lunch_test}}
+currently no lunches are open.
+{{/if}}
+</p>
+
+<ul class="meal_list">
+{{#each open_lunch_list}}
+{{#if $not mecook}}
+<li class = "meal_box">
+<h3 class="meal_titles">
+lunch at {{this.meal_locator}}
+</h3>
+<h3>
+{{this.date}}
+</h3>
+
+<p class="enlarge">
+{{#if $neq this.num_cooks "none"}}
+{{this.cooks_needed}} cooking places open.
+{{/if}}
+{{#if $eq this.num_cooks "none"}}
+no maximum on number of cooks.
+{{/if}}
+
+<br>
+dietary restrictions:
+
+{{#if this.no_diet}}
+{{#if $not this.vegetarian}}
+{{#if $not this.vegan}}
+{{#if $not this.kosher}}
+{{#if $not this.halal}}
+{{#if $not this.gluten_free}}
+{{#if $not this.lactose_free}}
+{{#if $not this.other_diet}}
+ none
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{#if this.vegetarian}}
+ vegetarian
+{{/if}}
+{{#if this.vegan}}
+ vegan
+{{/if}}
+{{#if this.kosher}}
+ kosher
+{{/if}}
+{{#if this.halal}}
+ halal
+{{/if}}
+{{#if this.gluten_free}}
+ gluten-free
+{{/if}}
+{{#if this.lactose_free}}
+ lactose-free
+{{/if}}
+{{#if this.other_diet}}
+ other
+{{/if}}
+
+{{#if $neq this.comments ""}}
+<br><br>
+comments: {{this.comments}}
+{{/if}}
+<br>
+<br>
+recipes: {{#each recipe_names}}
+{{this.recipe_name}}, 
+{{/each}}
+<br><br>
+cooks:
+{{#each cook_names}}
+{{this.cook_name}}
+{{/each}}
+<br>
+<br>
+<br>
+<a class="sb-link view_meal nav-button" href="{{pathFor 'view_meal'}}">view&#9757;</a>
+<a class="sb-link join_meal nav-button">join&#10004;</a>
+</p>
+<br>
+</li>
+{{/if}}
+{{/each}}
+</ul>
+</div>
+</template>

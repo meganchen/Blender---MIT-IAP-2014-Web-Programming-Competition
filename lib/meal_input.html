@@ -1,0 +1,75 @@
+<template name="meal_input" id="meal_input">
+
+<label id="locator_label" class = "enlarge">&#42;location</label>
+<input type="text" id="meal_locator" placeholder="enter meal location"></input>
+
+<br>
+<br>
+
+  <label id="date_label" class = "enlarge">&#42;date</label>
+  <input type="datepicker" id="datepicker" placeholder="enter date"></input>
+
+<br>
+<br>
+
+  <label id="time_label" class = "enlarge" >&#42;meeting time</label>
+  <input type="time" id="meeting_time" placeholder="enter meeting time"></input>
+
+<br>
+<br>
+
+  <label id="meeting_label" class = "enlarge" >&#42;meeting location</label>
+  <input type="text" id="meeting_locator" placeholder="enter meeting location"></input>
+
+<br>
+<br>
+
+<label class = "enlarge">maximum number of cooks (including yourself)</label>
+  <select id="num_cooks">
+  <option value='none'>none</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+  <option value=4>4</option>
+  <option value=5>5</option>
+  <option value=6>6</option>
+  <option value=7>7</option>
+  <option value=8>8</option>
+  <option value=9>9</option>
+  <option value=10>10</option>
+</select>
+
+<br>
+<br>
+
+<label class = "enlarge">Dietary restrictions</label>
+
+<div id="dietForm">
+<form class = "big" id="diet">
+  <input class="enlarge" type="checkbox" id="no_diet" checked> None</input><br>
+  <input class="enlarge" type="checkbox" id="vegetarian"> Vegetarian</input><br>
+  <input class="enlarge" type="checkbox" id="vegan"> Vegan</input><br>
+  <input class="enlarge" type="checkbox" id="kosher"> Kosher</input><br>
+  <input class="enlarge" type="checkbox" id="halal"> Halal</input><br>
+  <input class="enlarge" type="checkbox" id="gluten_free"> Gluten-free</input><br>
+  <input class="enlarge" type="checkbox" id="lactose_free"> Lactose-free</input><br>
+  <input class="enlarge" type="checkbox" id="other_diet"> Other: Describe in comments</input><br>
+</form>
+</div>
+
+<br><br><br><br><br>
+
+<label id="comments_label" class = "enlarge">comments</label>
+<input type="text" id="comments" placeholder="(optional)"></input>
+
+<br>
+
+<p>
+&#42; denotes required field
+</p>
+
+<br>
+<br>
+ 
+<a class = "sb-link nav-button" id="submit_meal">submit meal! &#10004;</a>
+<br><br>
+</template>

@@ -1,0 +1,205 @@
+<template name="view_meal" id="view_meal">
+	<div id = "main-wrapper">
+{{#if output}}
+<div>
+<h2>
+{{#if $eq output.meal_type 'breakfast'}}breakfast {{/if}}
+{{#if $eq output.meal_type 'lunch'}}lunch {{/if}}
+{{#if $eq output.meal_type 'dinner'}}dinner {{/if}}
+{{#if $eq output.meal_type 'other'}}other meal {{/if}}
+{{#if $eq output.meal_type 'dessert'}}dessert {{/if}}
+{{#if $eq cook_status "chef"}}
+(planning)
+{{/if}}
+</h2>
+<hr>
+
+<h2>
+	meal info
+</h2>
+
+<h3>
+at {{output.meal_locator}}
+<br>
+</h3>
+<h3>
+{{output.date}}
+</h3>
+<br>
+{{#if $eq cook_status "chef"}}
+<a class="sb-link edit_meal nav-button" href="{{pathFor plan_output_meal_type}}">edit&#9998;</a>
+<a class="sb-link delete_meal nav-button">delete&#10008;</a>
+{{/if}}
+
+<p class = "enlarge">
+<br>
+<br>
+cooks: 
+{{#each output_cooks}}
+{{this.cook_name}}, 
+{{/each}}
+<br>
+<br>
+
+{{#if $neq output.cooks_needed 0}}
+{{#if $neq output.num_cooks "none"}}
+{{output.cooks_needed}} cooking places open.
+{{/if}}
+{{#if $eq output.num_cooks "none"}}
+no maximum on number of cooks.
+{{/if}}
+{{/if}}
+{{#if $eq output.cooks_needed 0}}
+all cooking places filled.
+{{/if}}
+<br><br>
+
+meet at {{output.meeting_locator}} at {{output.meeting_time}}.
+
+<br><br>
+
+dietary restrictions:
+
+{{#if output.no_diet}}
+{{#if $not output.vegetarian}}
+{{#if $not output.vegan}}
+{{#if $not output.kosher}}
+{{#if $not output.halal}}
+{{#if $not output.gluten_free}}
+{{#if $not output.lactose_free}}
+{{#if $not output.other_diet}}
+ none
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+{{#if output.vegetarian}}
+ vegetarian
+{{/if}}
+{{#if output.vegan}}
+ vegan
+{{/if}}
+{{#if output.kosher}}
+ kosher
+{{/if}}
+{{#if output.halal}}
+ halal
+{{/if}}
+{{#if output.gluten_free}}
+ gluten-free
+{{/if}}
+{{#if output.lactose_free}}
+ lactose-free
+{{/if}}
+{{#if output.other_diet}}
+ other
+{{/if}}
+
+{{#if $neq output.comments ""}}
+<br><br>
+comments: {{output.comments}}
+{{/if}}
+
+<br>
+<br>
+<br>
+{{#if $eq output.meal_type 'breakfast'}}
+<a class="sb-link nav-button" href="{{pathFor 'breakfast'}}">&#8606;breakfast</a>
+{{/if}}
+
+{{#if $eq output.meal_type 'lunch'}}
+<a class="sb-link nav-button" href="{{pathFor 'lunch'}}">&#8606;lunch</a>
+{{/if}}
+
+{{#if $eq output.meal_type 'dinner'}}
+<a class="sb-link nav-button" href="{{pathFor 'dinner'}}">&#8606;dinner</a>
+{{/if}}
+
+{{#if $eq output.meal_type 'dessert'}}
+<a class="sb-link nav-button" href="{{pathFor 'dessert'}}">&#8606;dessert</a>
+{{/if}}
+
+{{#if $eq output.meal_type 'other'}}
+<a class="sb-link nav-button" href="{{pathFor 'other'}}">&#8606;other</a>
+{{/if}}
+
+{{#if $eq cook_status "cook"}}
+<a class="sb-link unjoin_meal nav-button">unjoin&#8621;</a>
+{{/if}}
+
+{{#if $eq cook_status "none"}}
+<a class="sb-link join_viewed_meal nav-button">join&#10004;</a>
+{{/if}}
+<br><br>
+<hr>
+
+<h2>recipes
+</h2>
+<br>
+<ul class = "enlarge" id = "resources">
+{{#if $eq output_recipes_any null}}
+no recipes yet.
+{{/if}}
+{{#each output_recipes}}
+<li>
+{{#if $neq this.recipe_url ""}}
+name: <a class = "sb-link enlarge" href={{this.recipe_url}}>{{this.recipe_name}}{{#if this.recipe_url}}&#8608;{{/if}}</a>
+{{/if}}
+
+{{#if $eq this.recipe_url ""}}
+{{this.recipe_name}}
+{{/if}}
+
+{{#if $neq this.recipe_notes ""}}
+<br><br>
+notes: {{this.recipe_notes}}
+{{/if}}
+</li>
+<br>
+<br>
+{{/each}}
+</ul>
+<br>
+
+</div>
+
+<br>
+<br>
+<hr>
+
+
+{{#if $neq cook_status "none"}}
+<h2>messages
+</h2>
+<br>
+<ul class="enlarge" id = "resources">
+{{#if $eq output_messages_any null}}
+no messages yet.
+{{/if}}
+{{#each output_messages}}
+<li> {{this.author}} says: 
+<br>
+"{{this.message}}"
+<br>
+<br>
+</li>
+{{/each}}
+</ul>
+<br>
+{{#if message_editing}}
+{{yield 'message_input'}}
+{{/if}}
+<br>
+<a class="sb-link make_message nav-button">new message &#9993;</a>
+<br>
+<br>
+{{/if}}
+
+</p>
+{{/if}}
+</div>
+</template>

@@ -1,0 +1,75 @@
+<template name="main" id="main">
+
+	<body>
+		<div id = "main-wrapper">
+			
+			<div id = "mealStuff">
+				<h1> hungry? let's make... </h1> <br><br>
+				<ul class = "mealButtons">
+					<li>
+						<div id = "container">
+						<a href="{{pathFor 'breakfast'}}"><img src = "breakfastc.jpg" id = "breakfast"></a>
+							<div id = "overlay">
+								<div id = "myrow">
+									<div class = "XXL" id = "mycell">
+										<a class = "sb-link XXL" href="{{pathFor 'breakfast'}}">breakfast</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id = "container">
+							<a href="{{pathFor 'lunch'}}"><img src = "lunchc.jpg" id = "lunch"></a>
+							<div id = "overlay">
+								<div id = "myrow">
+									<div class = "enlarge" id = "mycell">
+										<a class = "sb-link XXL" href="{{pathFor 'lunch'}}">lunch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id = "container">
+							<a href="{{pathFor 'dinner'}}"><img src = "dinnerc.jpg" id = "dinner"></a>
+							<div id = "overlay">
+								<div id = "myrow">
+									<div class = "enlarge" id = "mycell">
+										<a class = "sb-link XXL" href="{{pathFor 'dinner'}}">dinner</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id = "container">
+							<a href="{{pathFor 'dessert'}}"><img src = "dessertc.jpg" id = "dessert"></a>
+							<div id = "overlay">
+								<div id = "myrow">
+									<div class = "enlarge" id = "mycell">
+										<a class = "sb-link XXL" href="{{pathFor 'dessert'}}">dessert</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id = "container">
+							<a href="{{pathFor 'other'}}"><img src = "otherc.jpeg" id = "other"></a>
+							<div id = "overlay">
+								<div id = "myrow">
+									<div class = "enlarge" id = "mycell">
+										<a class = "sb-link XXL" href="{{pathFor 'other'}}">other</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<br><br><br>
+			</div>			
+		</div>
+	</body>
+
+</template>

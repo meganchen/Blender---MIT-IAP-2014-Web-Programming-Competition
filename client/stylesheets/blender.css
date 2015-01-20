@@ -1,0 +1,283 @@
+/* CSS declarations go here */
+
+body {
+	background-color: #E8FCE6;
+}
+
+/* sidebar stuff */
+
+#sidebar-wrapper {
+	background: #8ED487;
+	position: fixed;
+	left: 5%;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+	min-height: 100%;
+	width: 20%;
+	overflow-y: visible;
+	z-index: 1000;
+	box-shadow: 0px 0px 5px 3px grey;
+}
+
+.sidebar-nav {
+	list-style-type: none;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+}
+
+.sidebar-brand {
+	padding: 5%;
+	width: 90%;
+}
+
+.sb-link {
+	color: #541D2A;
+	text-decoration: none;
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-size: 30px;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sb-link:hover {
+	color: #8C6B73;
+	text-decoration: none;
+}
+
+#rightbar-wrapper {
+	background: #8ED487;
+	position: fixed;
+	left: 83%;
+	margin: 0px;
+	padding: 0px;
+	top: 0px;
+	min-height: 100%;
+	width: 13%;
+	overflow: hidden;
+	z-index: 1000;
+	box-shadow: 0px 0px 5px 3px grey;
+}
+
+#rb_photos {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.rb {
+	width: 100%;
+}
+
+/* page content */
+
+/*headings*/
+h1 {
+	font-size: 70px;
+	font-weight: 1500;
+}
+
+h2 {
+	font-size: 45px;
+	font-weight: 1500;
+}
+
+#page-content-wrapper {
+	width: 82%;
+	text-align: right;
+	font-family: 'Waiting for the Sunrise', cursive;
+	color: #541D2A;
+	margin-top: 5%;
+}
+
+#main-wrapper {
+	width: 70%;
+	float: right;
+}
+
+.carousel-inner {
+	width: 95%;
+	height: 100%;
+	overflow: hidden;
+	word-wrap:break-word;
+	left: 4%;
+}
+
+.carousel-control {
+	left: 5%;
+}
+
+.mealButtons {
+	float: inline;
+	list-style-type: none;
+}
+
+#container img {
+    width: 100%;
+}
+
+#container {
+	float:left;
+    position: relative;
+    width: 33%;
+}
+
+#overlay {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    display: table;
+	color: #541D2A;
+	background: white;
+	opacity: 0.7;
+}
+
+#myrow {
+    display: table-row;
+}
+
+#mycell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.dropdown-toggle {
+	font-family: 'Waiting for the Sunrise', cursive;
+	color: #541D2A;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.dropdown-toggle:hover {
+	color: #8C6B73;
+	text-decoration: none;
+}
+
+.dropdown-toggle:visited {
+	color: #541D2A;
+	text-decoration: none;
+}
+
+.dropdown-toggle:active {
+	color: #8C6B73;
+	text-decoration: none;
+}
+
+.sb-link:hover {
+	color: #8C6B73;
+	text-decoration: none;
+}
+
+.enlarge {
+	font-size: 20px;
+}
+
+.big {
+	font-size: 15px;
+}
+
+.XXL {
+	font-size: 50px;
+}
+
+#comments {
+	width: 250px;
+}
+
+.meal_list {
+	list-style-type: none;
+}
+
+#recipes {
+	list-style-type: none;
+}
+
+/*meal input dietary restrictions*/
+#dietForm {
+	float: right;
+}
+
+#diet {
+	overflow: scroll;
+	height: 80px;
+	width: 150px;
+	text-align: left;
+	background-color: white;
+}
+
+#copyright {
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-weight: 800;
+}
+
+/*button formatting for [something]_lists.html pages. Go back and start new buttons*/
+.nav-button {
+	padding-right: 10px;
+	padding-left: 10px;
+	border: 3px solid #541D2A;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.nav-button:hover {
+	border: 3px solid #8C6B73;
+}
+
+/*plan something! aka meal_input.html page. makes all text boxes the same */
+
+/*date and time text fields*/
+input, input[type='time'], #diet {
+	border: 1px solid #C4C4C4;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+/*horizontal lines under headings*/
+hr {
+	height: 2px;
+	background-color: #541D2A;
+}
+
+.dashed_line{
+	height: 1px;
+	background-color: #541D2A;
+	border-bottom: dashed;
+}
+
+/* "login or register to find cooking partners now" formatting */
+#main_page_msg{
+	font-size: 40px;
+}
+
+#message_input {
+	width: 400px;
+}
+
+.meal_box {
+	border: 1px solid #C4C4C4;
+	border-left-style: none;
+	padding: 10px;
+}
+
+/*enlarges titles of each meal*/
+.meal_titles {
+	font-size: 35px;
+	font-weight: 900;
+	text-decoration: underline;
+}
+/*smaller, mostly just adds underline*/
+.meal_titles2 {
+	text-decoration: underline;
+}
+
+#resources {
+	list-style-type: none;
+}

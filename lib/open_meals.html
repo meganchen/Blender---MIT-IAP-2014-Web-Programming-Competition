@@ -1,0 +1,67 @@
+<template name = "open_meals" id = "open_meals">
+	<div id = "main-wrapper">
+	<h2>
+		open meals
+	</h2>
+	<hr>
+
+	<ul class="meal_list">
+	{{#each open_meal_list}}
+	{{#if $not mecook}}
+	<li>
+	<h3>
+	{{#if $eq this.meal_type 'breakfast'}}breakfast {{/if}}
+	{{#if $eq this.meal_type 'lunch'}}lunch {{/if}}
+	{{#if $eq this.meal_type 'dinner'}}dinner {{/if}}
+	{{#if $eq this.meal_type 'other'}}other{{/if}}
+	{{#if $eq this.meal_type 'dessert'}}dessert {{/if}}
+	{{#if $neq this.meal_locator ""}}
+	 at {{this.meal_locator}}
+	{{/if}}
+	</h3>
+	date:
+	{{this.date}}
+	<br>
+
+	approval is {{#if $eq this.approval false}}not {{/if}}required before adding cooks.
+	<br>
+	{{#if $neq this.num_cooks "none"}}
+	{{this.cooks_needed}} cooking places open.
+	{{/if}}
+	{{#if $eq this.num_cooks "none"}}
+	no maximum on number of cooks.
+	{{/if}}
+
+	{{#if $neq this.ingredients ""}}
+	<br>
+	ingredients required: {{this.ingredients}}
+	{{/if}}
+
+	{{#if $neq this.diet ""}}
+	<br>
+	dietary restrictions: {{this.diet}}
+	{{/if}}
+
+	{{#if $neq this.comments ""}}
+	<br>
+	comments: {{this.comments}}
+	{{/if}}
+	<br>
+	<br>
+	recipes: {{#each recipe_names}}
+	{{this.recipe_name}}, 
+	{{/each}}
+	<br>
+	cooks:
+	{{#each cook_names}}
+	{{this.cook_name}}
+	{{/each}}
+	<br>
+	<input type="submit" class="join_meal" value="Join meal!"></input>
+	<hr>
+	</li>
+	{{/if}}
+	{{/each}}
+	</ul>
+</div>
+</template>
